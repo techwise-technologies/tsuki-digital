@@ -1,0 +1,138 @@
+version: '3.7'
+
+services:
+  caddy:
+    container_name: Reverse_Proxy
+    image: techwise-technologies/caddy:${CADDY_VERSION}
+    build:
+      context: .
+      dockerfile: ./caddy/Dockerfile
+    volumes:
+      - ${CADDYFILE}:/etc/caddy/Caddyfile
+      - ${CADDY_DATA_DIR}:/data
+      - ${CADDY_CONF_DIR}:/config
+    environment:
+      - CLOUDFLARE_EMAIL=${CLOUDFLARE_EMAIL}
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_AUTH_TOKEN}
+      - ACME_AGREE=true
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    networks:
+      tsuki_net:
+        ipv4_address: 172.18.1.1
+
+  nginx:
+    container_name: Web_Server
+    image: techwise-technologies/nginx:${NGINX_VERSION}
+    build:
+      context: .
+      dockerfile: ./nginx/Dockerfile
+    volumes:
+      - ${NGINX_CONF_DIR}:/etc/nginx/conf.d
+      - ${NGINX_LOG_DIR}:/var/log/nginx
+      - ${WORDPRESS_DATA_DIR}:/var/www/html
+      - ${FASTCGI_CACHE_DIR}:/tmp/cache
+    expose:
+      - '80'
+    depends_on:
+      - wordpress
+    restart: unless-stopped
+    networks:
+      tsuki_net:
+        ipv4_address: 172.18.1.2
+        
+  protonmail:
+    container_name: Mail_Server
+    image: techwise-technologies/proton-bridge:${PROTON_BRIDGE_VERSION}
+    build:
+      context: .
+      dockerfile: ./proton-bridge/Dockerfile
+    volumes:
+      - protonmail:/root 
+    ports: 
+      - "1025:25/tcp"
+      - "1143:143/tcp" 
+    restart: unless-stopped 
+    networks:
+      tsuki_net:
+        ipv4_address: 172.18.1.3
+
+  wordpress:
+    container_name: WordPress
+    image: techwise-technologies/wordpress:${WORDPRESS_VERSION}
+    build:
+      context: .
+      dockerfile: ./redis/Dockerfile
+    volumes:
+      - ${TSUKI_PHP_CONF}:/usr/local/etc/php/conf.d/tsuki.ini
+      - ${WORDPRESS_DATA_DIR}:/var/www/html
+      - ${FASTCGI_CACHE_DIR}:/tmp/cache
+    environment:
+      - WORDPRESS_DB_NAME=${WORDPRESS_DB_NAME}
+      - WORDPRESS_TABLE_PREFIX=${WORDPRESS_TABLE_PREFIX}
+      - WORDPRESS_DB_HOST=${WORDPRESS_DB_HOST}
+      - WORDPRESS_DB_USER=${WORDPRESS_DB_USER}
+      - WORDPRESS_DB_PASSWORD=${WORDPRESS_DB_PASSWORD}
+    depends_on:
+      - db
+    restart: unless-stopped
+    networks:
+      tsuki_net:
+        ipv4_address: 172.18.1.4
+
+  redis:
+    container_name: DB_Cache
+    image: redis:${REDIS_VERSION}
+    command: redis-server --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - ${REDIS_CONF}:/etc/redis/redis.conf
+      - ${REDIS_VAR_LIB}:/var/lib/redis
+      - ${REDIS_DATA_DIR}:/data
+    environment:
+     - REDIS_REPLICATION_MODE=master
+    restart: unless-stopped
+    networks:
+      tsuki_net:
+        ipv4_address: 172.18.1.5
+
+  db:
+    container_name: DB
+    image: mariadb:${MARIADB_VERSION}
+    volumes:
+      - ${DB_DATA_DIR}:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+    restart: unless-stopped
+    networks:
+      tsuki_net:
+        ipv4_address: 172.18.1.6
+        
+  portainer:
+    container_name: Admin_Panel
+    image: portainer/portainer-ce
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+    expose:
+      - '9000'
+    restart: always
+    networks:
+      tsuki_net:
+        ipv4_address: 172.18.1.7
+
+networks:
+  tsuki_net:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.18.1.0/16
+
+volumes:
+  portainer_data: {}
+  protonmail: {}

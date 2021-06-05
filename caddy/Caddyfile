@@ -1,0 +1,17 @@
+yourdomain.com, www.yourdomain.com {
+  reverse_proxy nginx
+  tls email@yourdomain.com
+  
+  tls {
+    dns cloudflare cloudflare_api_token
+  }
+}
+
+devpanel.yourdomain.com {
+  reverse_proxy portainer:9000
+  tls email@yourdomain.com
+  
+  tls {
+    dns cloudflare cloudflare_api_token
+  }
+}
