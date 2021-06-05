@@ -1,6 +1,6 @@
 .env*
+!.env_example
 logs/
-nginx/
 mariadb/
 wordpress/
-!.env_example
+cache/

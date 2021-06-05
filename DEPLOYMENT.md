@@ -228,7 +228,7 @@ After a few moments your WordPress Application & Admin UI is ready to be configu
 
 To initialize and add your account to the bridge, 
 
-    docker run --rm -it -v my-webshop_protonmail:/root techwise-technologies/proton-bridge:latest init
+    docker run --rm -it -v my-webshop_protonmail:/root techwise-technologies/proton-bridge:stable init
 
 Wait for the bridge to startup, use `login` command and follow the instructions to add your account into the bridge. Then use `info` to see the configuration information (take note of the username and password). After that, use `exit` to exit the bridge. You may need `CTRL`+`C` to exit the docker entirely.
 
