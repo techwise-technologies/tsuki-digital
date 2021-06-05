@@ -1,0 +1,6 @@
+.env*
+logs/
+nginx/
+mariadb/
+wordpress/
+!.env_example
