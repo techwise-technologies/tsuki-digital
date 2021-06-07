@@ -160,6 +160,7 @@ WORDPRESS_DB_HOST=db
 REDIS_PASSWORD=very_very_strong_password      <------------ EDIT THIS
 REDIS_CONF=./redis/redis.conf
 REDIS_DATA_DIR=./redis/data/
+REDIS_VAR_LIB=./redis/lib/
 REDIS_VERSION=alpine
 
 # MariaDB
