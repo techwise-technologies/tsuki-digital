@@ -7,7 +7,7 @@ yourdomain.com, www.yourdomain.com {
   }
 }
 
-devpanel.yourdomain.com {
+cpanel.yourdomain.com {
   reverse_proxy portainer:9000
   tls email@yourdomain.com
   
