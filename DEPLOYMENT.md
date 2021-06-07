@@ -227,13 +227,15 @@ After a few moments your WordPress Application & Admin UI is ready to be configu
 
 ### STEP 6 : Proton Bridge Initialization
 
-To initialize and add your account to the bridge, 
+In the Admin UI, go to the Mail_Server container and `stop` it temporarily. This is required to initialize and add your account to the bridge, 
 
     docker run --rm -it -v my-webshop_protonmail:/root techwise-technologies/proton-bridge:stable init
 
 Wait for the bridge to startup, use `login` command and follow the instructions to add your account into the bridge. Then use `info` to see the configuration information (take note of the username and password). After that, use `exit` to exit the bridge. You may need `CTRL`+`C` to exit the docker entirely.
 
 The initialization step exposes the bridge CLI so you can do things like switch between combined and split mode, change proxy, etc. The [official guide](https://protonmail.com/support/knowledge-base/bridge-cli-guide/) gives more information on to use the CLI.
+
+Once initialized, go back in the Admin UI & restart the Mail_Server container.
 
 ### STEP 7: WordPress Installation & Configuration
 
