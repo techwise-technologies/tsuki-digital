@@ -309,8 +309,8 @@ Navigate to Your Admin Panel URL and Folow the Instructions to Create an Admin U
 WARNING : THIS REMOVES ALL CONTAINERS & NETWORKS & IMAGES !!!
 
     docker stop $(docker ps -a -q)
-    docker rm $(docker ps -a -q)
+    docker container prune
     docker image prune -a
     docker network prune
-
+    docker volume prune
 
