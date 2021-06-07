@@ -227,7 +227,7 @@ After a few moments your WordPress Application & Admin UI is ready to be configu
 
 ### STEP 6 : Proton Bridge Initialization
 
-In the Admin UI, go to the Mail_Server container and `stop` it temporarily. This is required to initialize and add your account to the bridge, 
+In the Admin UI, go to the Mail_Server container and `stop` it temporarily. This is required to initialize and add your account to the bridge. In the shell run the following command. 
 
     docker run --rm -it -v my-webshop_protonmail:/root techwise-technologies/proton-bridge:stable init
 
