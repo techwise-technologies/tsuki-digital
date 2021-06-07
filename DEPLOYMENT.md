@@ -36,10 +36,9 @@ XII)  Portainer       : Container Management UI
 * Configure `Caddyfile`
 * Deployment with Docker-Compose
 * Proton Bridge Initialization
-* WordPress Installation & Configuration
+* WordPress Configuration
 * Update `wp-config.php`
 * Activate Plugins
-* Portainer Admin UI
 * Stoppage of Deployment
 * Removal of Containers & Images
 
@@ -222,12 +221,17 @@ Time to deploy, run this command and watch the code execute. It may take a few m
 
 After a few moments your WordPress Application & Admin UI is ready to be configured.
 
-    WordPress Application:  https://www.yourdomain.com 
-    Portainer Admin UI :    https://cpanel.yourdomain.com 
+    WordPress Application:  https://www.yourdomain.com        <------------------------ Complete the 1 minute WordPress installation & log in
+    Portainer Admin UI :    https://cpanel.yourdomain.com    
+    
+
+    [ Note : Keep a Copy of the Username & Password, this shall be the Admin credentials for the WordPress Application. ] 
+
+Navigate to Your Admin Panel URL and Folow the Instructions to Create an Admin User. Keep a Copy of the Credentials. Log into the Admin UI.
 
 ### STEP 6 : Proton Bridge Initialization
 
-In the Admin UI, go to the Mail_Server container and `stop` it temporarily. This is required to initialize and add your account to the bridge. In the shell run the following command. 
+In the Admin UI, go to the `Mail_Server` container and stop it temporarily. This is required to initialize and add your account to the bridge. In the shell run the following command. 
 
     docker run --rm -it -v my-webshop_protonmail:/root techwise-technologies/proton-bridge:stable init
 
@@ -235,11 +239,9 @@ Wait for the bridge to startup, use `login` command and follow the instructions 
 
 The initialization step exposes the bridge CLI so you can do things like switch between combined and split mode, change proxy, etc. The [official guide](https://protonmail.com/support/knowledge-base/bridge-cli-guide/) gives more information on to use the CLI.
 
-Once initialized, go back in the Admin UI & restart the Mail_Server container.
+Once initialized, go back in the Admin UI & start the `Mail_Server` container.
 
-### STEP 7: WordPress Installation & Configuration
-
-Go to your Domain and follow the steps to install WordPress. Keep a Copy of the Username & Password, this shall be the Admin credentials for the WordPress Application. 
+### STEP 7: WordPress Configuration
 
 Log into the WordPress Admin Panel.
 
@@ -297,10 +299,6 @@ In The WordPress Admin UI, Navigate To Plugins and Activate SMTP, Redis & Nginx 
 * Navigate to Nginx Settings and Set the Path to "/tmp/cache"
 
     `Purge Cache`
-
-### STEP 9: Portainer Admin UI
-
-Navigate to Your Admin Panel URL and Folow the Instructions to Create an Admin User. Keep a Copy of the Credentials. Log into the Admin UI.
 
 ### Stoppage of Deployment
 
