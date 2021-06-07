@@ -51,9 +51,9 @@ services:
       dockerfile: ./proton-bridge/Dockerfile
     volumes:
       - protonmail:/root 
-    ports: 
-      - "1025:25/tcp"
-      - "1143:143/tcp" 
+    expose: 
+      - "25/tcp"
+      - "143/tcp" 
     restart: unless-stopped 
     networks:
       tsuki_net:
