@@ -1,5 +1,5 @@
     
-# Tsuki WebShop Deployment
+# Tsuki WordPress Deployment
 
 ## Dockerized WordPress 5.7 (PHP 7.4), Php-Fpm, Nginx & Caddy Server Built on Linux
 
@@ -117,7 +117,7 @@ More information at: https://www.portainer.io/
 
 ### ProtonMail ?
 
-ProtonMail is an end-to-end encrypted email service founded in 2013 in Geneva, Switzerland by scientists who spent time at the CERN research facility. ProtonMail uses client-side encryption to protect email content and user data before they are sent to ProtonMail servers, unlike other common email providers such as Gmail and Hotmail.
+ProtonMail is an end-to-end encrypted email service founded in 2013 in Geneva. ProtonMail uses client-side encryption to protect email content and user data before they are sent to ProtonMail servers, unlike other common email providers such as Gmail and Hotmail.
 
 ProtonMail Bridge is an open source application that enables the integration of your ProtonMail account with popular email clients, such as Microsoft Outlook, Mozilla Thunderbird, or Apple Mail. Bridge runs in the background by seamlessly encrypting and decrypting messages as they enter and leave your computer. The app is compatible with most email clients supporting IMAP and SMTP protocols.
 
