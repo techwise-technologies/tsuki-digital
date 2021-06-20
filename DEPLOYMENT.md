@@ -227,11 +227,11 @@ After a few moments your WordPress Application & Admin UI is ready to be configu
 
     [ Note : Keep a Copy of the Username & Password, this shall be the Admin credentials for the WordPress Application. ] 
 
-Navigate to Your Admin Panel URL and Folow the Instructions to Create an Admin User. Keep a Copy of the Credentials. Log into the Admin UI.
+Navigate to the Portainer Admin Panel URL and Folow the Instructions to Create an Admin User. Keep a Copy of the Credentials. Log into the Admin UI.
 
 ### STEP 6 : Proton Bridge Initialization
 
-In the Admin UI, go to the `Mail_Server` container and stop it temporarily. This is required to initialize and add your account to the bridge. In the shell run the following command. 
+In the Portainer Admin UI, go to the `Mail_Server` container and stop it temporarily. This is required to initialize and add your account to the bridge. In the shell run the following command. 
 
     docker run --rm -it -v my-webshop_protonmail:/root techwise-technologies/proton-bridge:stable init
 
