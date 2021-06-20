@@ -221,7 +221,7 @@ Time to deploy, run this command and watch the code execute. It may take a few m
 
 After a few moments your WordPress Application & Admin UI is ready to be configured.
 
-    WordPress Application:  https://www.yourdomain.com        <------------ Complete the 1 minute WordPress installation & log in
+    WordPress Application:  https://www.yourdomain.com     <------------ Complete the 1 minute WordPress installation
     Portainer Admin UI :    https://cpanel.yourdomain.com    
     
 
