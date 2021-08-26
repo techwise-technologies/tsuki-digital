@@ -59,13 +59,13 @@ More information at: https://caddyserver.com/
 
 ### Nginx ?
 
-The goal behind Nginx was to Create the Fastest Web Server around, and Maintaining that Excellence is still a Central Goal of the Project. Nginx consistently beats Apache and other Servers in Benchmarks measuring Web Server Performance. Nginx also pairs well with php-fpm.
+Nginx is a small, lightweight web server. It runs on some of the top one million web servers. In particular, nginx is well-suited to a high traffic site. Its lightweight nature, compared to Apache, means an nginx server can run in a much smaller memory footprint. This makes it the web server of choice for people looking to squeeze the most performance out of a VPS solution.
 
 More information at: https://www.nginx.com
 
-### Php-Fpm ?
+### PHP-FPM ?
 
-Php-Fpm (FastCGI Process Manager) is an Alternative PHP FastCGI Application Server with some Additional Features Useful for Websites of Any Size, Especially Busier Websites. 
+PHP-FPM (FastCGI Process Manager) is an Alternative PHP FastCGI Application Server with some Additional Features Useful for Websites of Any Size, Especially Busier Websites. 
 
 These features include:
 
