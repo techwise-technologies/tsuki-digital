@@ -37,7 +37,7 @@ XII)  Portainer       : Container Management UI
 * Deployment with Docker-Compose
 * Proton Bridge Initialization
 * WordPress Configuration
-* Update `wp-config.php`
+* Update `wp-config.php` & `wordpress.conf`
 * Activate Plugins
 * Stoppage of Deployment
 * Removal of Containers & Images
@@ -253,11 +253,11 @@ Add 3 New Plugins :
      II)    Nginx Cache          | By Till Krüss 
     III)    WP Mail SMTP         | By WPForms
 
-### STEP 8: Update `wp-config.php`
+### STEP 8: Update `wp-config.php` & `wordpress.conf`
 
 In the command prompt, navigate to the wordpress folder and open the `wp-config.php` in nano
 
-    cd wordpress/ && sudo nano wp-config.php
+    sudo nano /wordpress/wp-config.php
 
 Add The Following Settings just above the MYSQL Settings :
 
@@ -272,6 +272,20 @@ Add This at the very Bottom of the file:
 
     /** Filesystem API Update Method */
     define('FS_METHOD','direct');
+
+Exit the file by pressing and holding `ctrl` + `x`. 
+
+This will initiate a prompt that will ask if you wish to save the changes, press `Y` and `Enter`. 
+
+#### Enable conditional purging in wordpress.conf
+
+    nano nginx/conf.d/wordpress.conf
+    
+Scroll down & uncomment the following:
+
+    location ~ /purge(/.*) {
+        fastcgi_cache_purge wordpress "$scheme$request_method$host$1";
+    }
 
 Exit the file by pressing and holding `ctrl` + `x`. 
 
