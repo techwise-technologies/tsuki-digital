@@ -257,7 +257,7 @@ Add 3 New Plugins :
 
 In the command prompt, navigate to the wordpress folder and open the `wp-config.php` in nano
 
-    sudo nano /wordpress/wp-config.php
+    sudo nano wordpress/wp-config.php
 
 Add The Following Settings just above the MYSQL Settings :
 
