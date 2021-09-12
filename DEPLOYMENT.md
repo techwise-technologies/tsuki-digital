@@ -1,11 +1,11 @@
 
 # Docker-Compose Deployment
 
-This document details a deployment of a stack of Docker Containers providing a production backend that serves a WordPress Application via the fastcgi Application Server to a Web Server with built-in fastcgi cache & lossless compression. 
+This Document details a Deployment of a Stack of Docker Containers providing a Production Backend that serves a WordPress Application via the Fastcgi Application Server to a Web Server with built-in Fastcgi Cache, Conditional Cache Purging & Lossless Compression. 
 
 Reverse Proxy performs secure Domain Name Validation, Auto TLS Management, Web Application Firewall & is paired with CloudFlare CDN. 
 
-End-to-End-Encrypted Email Server via ProtonMail Secure Email. 
+End-to-End-Encrypted (E2EE) Mail Server & PGP Encryption Client via Protonmail Secure Email.
 
 Automation & Orchestration by Docker-Compose including a Portainer Admin UI.
 
