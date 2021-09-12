@@ -297,8 +297,10 @@ In The WordPress Admin UI, Navigate To Plugins and Activate SMTP, Redis & Nginx 
 * Navigate to Redis Settings and "Enable Object Caching"
 
 * Navigate to Nginx Settings and Set the Path to "/tmp/cache"
+    
+* Select "Automatically flush the cache when content changes"
 
-    `Purge Cache`
+    `Save Settings`
 
 ### Stoppage of Deployment
 
