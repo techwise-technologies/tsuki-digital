@@ -16,7 +16,7 @@ II)   Debian Linux OS : Container Operating System
 III)  Maria DB        : Relational Database Management System ( RDBMS )
 IV)   Redis DB Cache  : In-Memory, Schema-Less Database Object Cache
 V)    PHP 7.4         : Hypertext Preprocessor ( General-Purpose Scripting Language )
-VI)   WordPress 5.7   : Content Management System ( CMS )
+VI)   WordPress 5.8   : Content Management System ( CMS )
 VII)  Php-Fpm         : Application Server ( FastCGI Process Manager )
 VIII) Nginx           : Web Server ( FastCGI_CACHE & Lossless Compression )
 IX)   ProtonMail      : Mail Server ( E2EE-SMTP Server )
@@ -49,7 +49,7 @@ XII)  Portainer       : Container Management UI
 ### Requirements
 
 * KVM, LXC or Similiar Cloud Hypervisor
-* OS: Linux (Debian 10) with Root Privileges
+* OS: Linux (Debian 10 or 11) with Root Privileges
 * Docker and Docker-Compose installed on the host machine
 * A Fully Qualified Domain Name (FQDN)
 * Cloudflare "Orange-Cloud" DNS Record with your FQDN pointing to your server’s public IP address
@@ -128,10 +128,10 @@ Example `.env` file (default values):
 CADDY_CONF_DIR=./caddy/config
 CADDY_DATA_DIR=./caddy/data
 CADDYFILE=./caddy/Caddyfile
-CADDY_VERSION=2.3.0
+CADDY_VERSION=2.4.6-alpine
 
 # ProtonMail
-PROTON_BRIDGE_VERSION=stable
+PROTON_BRIDGE_VERSION=1.8.10
 
 # CloudFlare 
 CLOUDFLARE_EMAIL=email@yourdomain.com       <------------ EDIT THIS
@@ -141,14 +141,14 @@ CLOUDFLARE_AUTH_TOKEN=cloudflare_api_token  <------------ EDIT THIS
 NGINX_CONF_DIR=./nginx/conf.d
 NGINX_LOG_DIR=./logs/nginx
 FASTCGI_CACHE_DIR=./cache
-NGINX_VERSION=stable
+NGINX_VERSION=1.20.1
 
 # PHP Configs
 TSUKI_PHP_CONF=./tsuki.ini
 
 # WordPress
 WORDPRESS_DB_PASSWORD=strong_password        <------------ EDIT THIS
-WORDPRESS_VERSION=php7.4           
+WORDPRESS_VERSION=5.8.1-php7.4-fpm           
 WORDPRESS_DB_NAME=yourdomain_com_wp          <------------ EDIT THIS   ## leave the trailing _wp 
 WORDPRESS_DB_USER=yourdomain_com             <------------ EDIT THIS      
 WORDPRESS_DATA_DIR=./wordpress
@@ -160,7 +160,7 @@ REDIS_PASSWORD=very_very_strong_password      <------------ EDIT THIS
 REDIS_CONF=./redis/redis.conf
 REDIS_DATA_DIR=./redis/data/
 REDIS_VAR_LIB=./redis/lib/
-REDIS_VERSION=alpine
+REDIS_VERSION=6.2.6-bullseye
 
 # MariaDB
 MYSQL_ROOT_PASSWORD=very_strong_password      <------------ EDIT THIS 
@@ -168,7 +168,7 @@ MYSQL_DATABASE=yourdomain_com_wp              <------------ EDIT THIS   ## leave
 MYSQL_PASSWORD=strong_password                <------------ EDIT THIS
 MYSQL_USER=yourdomain_com                     <------------ EDIT THIS
 DB_DATA_DIR=./mariadb
-MARIADB_VERSION=10.5
+MARIADB_VERSION=10.6.4
 
 ```
 Exit the file by pressing and holding `ctrl` + `x`. 
@@ -267,11 +267,6 @@ Add The Following Settings just above the MYSQL Settings :
     define( 'WP_REDIS_PASSWORD', 'very_very_strong_password');      <------------ EDIT THIS
 
 Replace `very_very_strong_password` with the SAME value you used previously for this key. 
-
-Add This at the very Bottom of the file:
-
-    /** Filesystem API Update Method */
-    define('FS_METHOD','direct');
 
 Exit the file by pressing and holding `ctrl` + `x`. 
 
