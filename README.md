@@ -1,7 +1,7 @@
     
 # Tsuki WordPress Deployment
 
-## Dockerized WordPress 5.7 (PHP 7.4), PHP-FPM, Nginx & Caddy Server Built on Linux
+## Dockerized WordPress 5.8 (PHP 7.4), PHP-FPM, Nginx & Caddy Server Built on Linux
 
 A Docker-Compose Deployment of a Single Site WordPress Instance Served via PHP-FPM to Nginx utilizing Maria DB as the Backing DataBase with Redis for In-Memory Object Caching; Built on Alpine & Debian Linux.
 
@@ -63,6 +63,14 @@ Nginx is a small, lightweight web server. It runs on some of the top one million
 
 More information at: https://www.nginx.com
 
+### ProtonMail ?
+
+ProtonMail is an end-to-end encrypted email service founded in 2013 in Geneva. ProtonMail uses client-side encryption to protect email content and user data before they are sent to ProtonMail servers, unlike other common email providers such as Gmail and Hotmail.
+
+ProtonMail Bridge is an open source application that enables the integration of your ProtonMail account with popular email clients, such as Microsoft Outlook, Mozilla Thunderbird, or Apple Mail. Bridge runs in the background by seamlessly encrypting and decrypting messages as they enter and leave your computer. The app is compatible with most email clients supporting IMAP and SMTP protocols.
+
+More information at: https://protonmail.com/bridge/
+
 ### PHP-FPM ?
 
 PHP-FPM (FastCGI Process Manager) is an Alternative PHP FastCGI Application Server with some Additional Features Useful for Websites of Any Size, Especially Busier Websites. 
@@ -114,14 +122,6 @@ Portainer Simplifies Container Management in Docker, Swarm, Kubernetes, ACI and 
 Making Container Management Easy.
 
 More information at: https://www.portainer.io/
-
-### ProtonMail ?
-
-ProtonMail is an end-to-end encrypted email service founded in 2013 in Geneva. ProtonMail uses client-side encryption to protect email content and user data before they are sent to ProtonMail servers, unlike other common email providers such as Gmail and Hotmail.
-
-ProtonMail Bridge is an open source application that enables the integration of your ProtonMail account with popular email clients, such as Microsoft Outlook, Mozilla Thunderbird, or Apple Mail. Bridge runs in the background by seamlessly encrypting and decrypting messages as they enter and leave your computer. The app is compatible with most email clients supporting IMAP and SMTP protocols.
-
-More information at: https://protonmail.com/bridge/
 
 ### Who are we ?
 
