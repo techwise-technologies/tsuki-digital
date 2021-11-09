@@ -114,9 +114,12 @@ services:
         
   portainer:
     container_name: Admin_Panel
-    image: portainer/portainer-ce
-    volumes: 
-      - /var/run/docker.sock:/var/run/docker.sock
+    image: portainer/portainer-ce:latest
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       - portainer_data:/data
     expose:
       - '9000'
