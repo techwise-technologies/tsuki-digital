@@ -131,7 +131,7 @@ CADDYFILE=./caddy/Caddyfile
 CADDY_VERSION=2.4.6-alpine
 
 # ProtonMail
-PROTON_BRIDGE_VERSION=1.8.10
+PROTON_BRIDGE_VERSION=1.8.12
 
 # CloudFlare 
 CLOUDFLARE_EMAIL=email@yourdomain.com       <------------ EDIT THIS
