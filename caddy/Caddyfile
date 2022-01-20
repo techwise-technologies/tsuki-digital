@@ -1,5 +1,6 @@
 yourdomain.com, www.yourdomain.com {
   reverse_proxy nginx
+  encode br
   tls email@yourdomain.com
   
   tls {
