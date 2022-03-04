@@ -268,6 +268,11 @@ Add The Following Settings just above the MYSQL Settings :
 
 Replace `very_very_strong_password` with the SAME value you used previously for this key. 
 
+Add This at the very Bottom of the file:
+
+    /** Filesystem API Update Method */
+    define('FS_METHOD','direct');
+
 Exit the file by pressing and holding `ctrl` + `x`. 
 
 This will initiate a prompt that will ask if you wish to save the changes, press `Y` and `Enter`. 
