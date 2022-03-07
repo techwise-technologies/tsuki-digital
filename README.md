@@ -122,7 +122,3 @@ Portainer Simplifies Container Management in Docker, Swarm, Kubernetes, ACI and 
 Making Container Management Easy.
 
 More information at: https://www.portainer.io/
-
-### Who are we ?
-
-We are Techwise Technologies and We ♥  Open Source.
