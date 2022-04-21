@@ -1,7 +1,7 @@
     
 # Tsuki WordPress Deployment
 
-## Dockerized WordPress 5.8 (PHP 7.4), PHP-FPM, Nginx & Caddy Server Built on Linux
+## Dockerized WordPress 5.9 (PHP 7.4), PHP-FPM, Nginx & Caddy Server Built on Linux
 
 A Docker-Compose Deployment of a Single Site WordPress Instance Served via PHP-FPM to Nginx utilizing Maria DB as the Backing DataBase with Redis for In-Memory Object Caching; Built on Alpine & Debian Linux.
 
